@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
@@ -8,277 +8,842 @@
     <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
 </head>
 <body>
+    <div class="ahs-logo">
+        <form method="post" action="/">
+            <input type="image" src="{{url_for('static', filename= 'styles/images/ahsLogo.png')}}" width="100" height="100" alt="logo" />
+        </form>
+    </div>
     <div class="page-container">
         <div class="wrapper">
+
             <div class="topnav">
-                <p>Abington Senior High School</p>
+                <div class="ahs-logo">
+                    <img src="{{url_for('static', filename= 'styles/images/ahsLogo.png')}}" width="100" height="100" alt="logo">
+                </div>
+                <form method="post" action="/">
+                    <input type="submit" value="Sign Out" class="logoutBtn" name="logoutBtn" />
+                </form>
+                <p style="font-size:40px;margin-top:20px;">ABINGTON</p>
+                <p style="font-size:20px;">Senior High School</p>
             </div>
 
             <div class="header">
-                <p>Course Catalog</p>
+                <div class="logo">
+                    <img src="{{url_for('static', filename= 'styles/images/ahsLogo.png')}}" width="80" height="80" alt="logo">
+                </div>
+                <p style="font-size:40px; position:fixed;left:50px; top:95px; z-index:999; color:black;">ASHS</p>
+                <p style="font-size: 15px; position: fixed; left: 80px; top: 125px; z-index: 999; color: black;">Course Catalog</p>
+
+                <form method="post" action="/student" id="search">
+
+                    <div class="search_box">
+
+                        <input type="text" class="input" placeholder="Search for courses..." name="searchBar" id="searchBar">
+
+                        <div class="btn">
+                            <button name="searchButton" type="submit" class="fas fa-search" id="searchButton"></button>
+                            <!--https://fontawesome.com/v4.7/icon/search-->
+                        </div>
+                    </div>
+                </form>
+
             </div>
             <div class="container">
-                <div class="mainArea">
-                    <div class="mainSpace">
-                        <div class="search_box">
-                            <input type="text" class="input" placeholder="Search...">
+                <div class="sidebar">
+                    <p style="padding: 20px 8px 10px 16px; cursor: auto; font-family: 'Avenir', Helvetica, sans-serif; font-size: 23px;">Refine Results</p>
 
-                            <div class="btn">
-                                <form method="post" action="/">
-                                    <button name="searchButton" type="submit" class="fas fa-search"></button>
-                                    <!--https://fontawesome.com/v4.7/icon/search-->
-                                </form>
-                            </div>
+
+                    <button class="dropdown" id="pathwayBttn">
+                        Pathway
+                        <i class="fa fa-caret-down"></i>
+                    </button>
+
+                    <form action="/student" id="pathways">
+
+                        <div class="dropdown-container" id="pathwayDDs">
+
+                            <label for="business" class="checkbox-container">
+                                Business
+                                <input type="checkbox" id="business" value="bisPath" onclick="checkboxClick(this)">
+                                <span class="checkmark"></span>
+                            </label>
+
+                            <label for="compSci" class="checkbox-container">
+                                Computer Science
+                                <input type="checkbox" id="compSci" value="csPath" onclick="checkboxClick(this)">
+                                <span class="checkmark"></span>
+                            </label>
+
+                            <label for="government" class="checkbox-container">
+                                Government
+                                <input type="checkbox" id="government" value="govPath" onclick="checkboxClick(this)">
+                                <span class="checkmark"></span>
+                            </label>
+
+                            <label for="health" class="checkbox-container">
+                                Health Services
+                                <input type="checkbox" id="health" value="healthPath" onclick="checkboxClick(this)">
+                                <span class="checkmark"></span>
+                            </label>
+
+                            <label for="humanities" class="checkbox-container">
+                                Humanities
+                                <input type="checkbox" id="humanities" value="humPath" onclick="checkboxClick(this)">
+                                <span class="checkmark"></span>
+                            </label>
+
+                            <label for="manu" class="checkbox-container">
+                                Manufacturing
+                                <input type="checkbox" id="manu" value="manuPath" onclick="checkboxClick(this)">
+                                <span class="checkmark"></span>
+                            </label>
+
+                            <label for="stem" class="checkbox-container">
+                                STEM
+                                <input type="checkbox" id="stem" value="stemPath" onclick="checkboxClick(this)">
+                                <span class="checkmark"></span>
+                            </label>
+
+                            <label for="scoSci" class="checkbox-container">
+                                Social Science
+                                <input type="checkbox" id="scoSci" value="socSciPath" onclick="checkboxClick(this)">
+                                <span class="checkmark"></span>
+                            </label>
+
+                            <label for="arts" class="checkbox-container">
+                                Arts
+                                <input type="checkbox" id="arts" value="visPath" onclick="checkboxClick(this)">
+                                <span class="checkmark"></span>
+                            </label>
+
                         </div>
-                        <div class="results">
-                            <table>
-                                <tr>
-                                </tr>
+                    </form>
+                    <hr style=" width: 80%; align-self: center; margin: auto; background-color: black; margin-top:11px">
+                    <button class="dropdown">
+                        Department
+                        <i class="fa fa-caret-down"></i>
+                    </button>
+
+                    <form action="/student" id="departments">
+                        <div class="dropdown-container">
+
+                            <label for="AR" class="checkbox-container">
+                                Art
+                                <input type="checkbox" id="AR" value="AR" onclick="checkboxClick(this)">
+                                <span class="checkmark"></span>
+                            </label>
+
+                            <label for="TE" class="checkbox-container">
+                                Technology
+                                <input type="checkbox" id="TE" value="TE" onclick="checkboxClick(this)">
+                                <span class="checkmark"></span>
+                            </label>
+
+                            <label for="BU" class="checkbox-container">
+                                Business
+                                <input type="checkbox" id="BU" value="BU" onclick="checkboxClick(this)">
+                                <span class="checkmark"></span>
+                            </label>
+
+                            <label for="EN" class="checkbox-container">
+                                English
+                                <input type="checkbox" id="EN" value="EN" onclick="checkboxClick(this)">
+                                <span class="checkmark"></span>
+                            </label>
+
+                            <label for="CS" class="checkbox-container">
+                                Consumer Science
+                                <input type="checkbox" id="CS" value="CS" onclick="checkboxClick(this)">
+                                <span class="checkmark"></span>
+                            </label>
+
+                            <label for="HP" class="checkbox-container">
+                                Health & PE
+                                <input type="checkbox" id="HP" value="HP" onclick="checkboxClick(this)">
+                                <span class="checkmark"></span>
+                            </label>
+
+                            <label for="RD" class="checkbox-container">
+                                Reading
+                                <input type="checkbox" id="RD" value="RD" onclick="checkboxClick(this)">
+                                <span class="checkmark"></span>
+                            </label>
+
+                            <label for="SC" class="checkbox-container">
+                                Science
+                                <input type="checkbox" id="SC" value="SC" onclick="checkboxClick(this)">
+                                <span class="checkmark"></span>
+                            </label>
+
+                            <label for="WL" class="checkbox-container">
+                                World Language
+                                <input type="checkbox" id="WL" value="WL" onclick="checkboxClick(this)">
+                                <span class="checkmark"></span>
+                            </label>
+
+                            <label for="MA" class="checkbox-container">
+                                Mathematics
+                                <input type="checkbox" id="MA" value="MA" onclick="checkboxClick(this)">
+                                <span class="checkmark"></span>
+                            </label>
+
+                            <label for="SS" class="checkbox-container">
+                                Social Studies
+                                <input type="checkbox" id="SS" value="SS" onclick="checkboxClick(this)">
+                                <span class="checkmark"></span>
+                            </label>
+
+                            <label for="MU" class="checkbox-container">
+                                Music
+                                <input type="checkbox" id="MU" value="MU" onclick="checkboxClick(this)">
+                                <span class="checkmark"></span>
+                            </label>
+
+
+
+                        </div>
+                    </form>
+
+                    <hr style=" width: 80%; align-self: center; margin: auto; background-color: black; margin-top:11px">
+                    <button class="dropdown">
+                        Course Level
+                        <i class="fa fa-caret-down"></i>
+                    </button>
+
+                    <form action="/student" id="courseLevel">
+                        <div class="dropdown-container">
+
+                            <label for="ap" class="checkbox-container">
+                                AP
+                                <input type="checkbox" id="ap" value="3" onclick="checkboxClick(this)">
+                                <span class="checkmark"></span>
+                            </label>
+
+                            <label for="honors" class="checkbox-container">
+                                Honors
+                                <input type="checkbox" id="honors" value="2" onclick="checkboxClick(this)">
+                                <span class="checkmark"></span>
+                            </label>
+
+                            <label for="cp" class="checkbox-container">
+                                Standard/CP
+                                <input type="checkbox" id="cp" value="1" onclick="checkboxClick(this)">
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>
+                    </form>
+                    <hr style=" width: 80%; align-self: center; margin: auto; background-color: black; margin-top:11px">
+
+                    <button class="dropdown">
+                        Length
+                        <i class="fa fa-caret-down"></i>
+                    </button>
+
+                    <form action="/student" id="courseLength">
+                        <div class="dropdown-container">
+
+                            <label for="semester" class="checkbox-container">
+                                Semester
+                                <input type="checkbox" id="semester" value="SM" onclick="checkboxClick(this)">
+                                <span class="checkmark"></span>
+                            </label>
+
+                            <label for="fullYear" class="checkbox-container">
+                                Full Year
+                                <input type="checkbox" id="fullYear" value="YR" onclick="checkboxClick(this)">
+                                <span class="checkmark"></span>
+                            </label>
+
+                        </div>
+                    </form>
+                    <hr style=" width: 80%; align-self: center; margin: auto; background-color: black; margin-top:11px">
+
+                    <form action="/student" id="clear">
+                        <button class="dropdown" style="font-size:15px; text-align:center; padding:20px 0px 0px 0px;">
+                            Clear All
+                        </button>
+                    </form>
+
+
+                </div>
+                <div class="mainArea">
+
+                    <div class="mainSpace">
+
+                        <div id="changePageBar" style="margin-top: 30px; justify-content: space-between; display:flex;">
+                            <table id="pageNumsBar">
                                 <tr>
                                     <td>
-                                        <div style="display: flex; justify-content: space-between;">
-                                            <div class="fa fa-plus"></div>
-                                            <div class="course-name">Data Structures</div>
-                                        </div>
-                                        <div class="descriptions">
-                                            <div>Honors</div>
-                                            <div>10 credits</div>
-                                            <div>Computer Science Pathway</div>
-                                            <div>5 days/week</div>
-                                            <div>Computer Science Department</div>
-                                        </div>
+                                        <button type="submit" class="backBtn" id="fullbackward" style="color: #761F33; background: none; width: 20px; height: 25px; border: none; cursor: pointer;">
+                                            <i class="fa fa-angle-left fa-lg"></i>
+                                        </button>
                                     </td>
-                                </tr>
-                                <tr>
                                     <td>
-                                        <div style="display: flex; justify-content: space-between;">
-                                            <div class="fa fa-plus"></div>
-                                            <div class="course-name">Data Structures</div>
-                                        </div>
-                                        <div class="descriptions">
-                                            <div>Honors</div>
-                                            <div>10 credits</div>
-                                            <div>Computer Science Pathway</div>
-                                            <div>5 days/week</div>
-                                            <div>Computer Science Department</div>
-                                        </div>
+                                        <button type="submit" class="backBtn" id="backward" style="color: #761F33; background: none; width: 20px; height: 25px; border: none; cursor: pointer;">
+                                            <i class="fa fa-angle-left fa-lg"></i>
+                                        </button>
                                     </td>
-                                </tr>
-                                <tr>
+                                    <td id="pageBox1">1</td>
+                                    <td id="pageBox2">2</td>
+                                    <td id="pageBox3">3</td>
+                                    <td id="pageBox4">...</td>
+                                    <td id="pageBox5">##last##</td>
                                     <td>
-                                        <div style="display: flex; justify-content: space-between;">
-                                            <div class="fa fa-plus"></div>
-                                            <div class="course-name">Data Structures</div>
-                                        </div>
-                                        <div class="descriptions">
-                                            <div>Honors</div>
-                                            <div>10 credits</div>
-                                            <div>Computer Science Pathway</div>
-                                            <div>5 days/week</div>
-                                            <div>Computer Science Department</div>
-                                        </div>
+                                        <button type="submit" class="forwardBtn" id="forward" style="color: #761F33; background:none; width: 20px; height: 25px; border: none; cursor: pointer;">
+                                            <i class="fa fa-angle-right fa-lg"></i>
+                                        </button>
                                     </td>
-                                </tr>
-                                <tr>
                                     <td>
-                                        <div style="display: flex; justify-content: space-between;">
-                                            <div class="fa fa-plus"></div>
-                                            <div class="course-name">Data Structures</div>
-                                        </div>
-                                        <div class="descriptions">
-                                            <div>Honors</div>
-                                            <div>10 credits</div>
-                                            <div>Computer Science Pathway</div>
-                                            <div>5 days/week</div>
-                                            <div>Computer Science Department</div>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div style="display: flex; justify-content: space-between;">
-                                            <div class="fa fa-plus"></div>
-                                            <div class="course-name">Data Structures</div>
-                                        </div>
-                                        <div class="descriptions">
-                                            <div>Honors</div>
-                                            <div>10 credits</div>
-                                            <div>Computer Science Pathway</div>
-                                            <div>5 days/week</div>
-                                            <div>Computer Science Department</div>
-                                        </div>
+                                        <button type="submit" class="forwardBtn" id="fullforward" style="color: #761F33; background:none; width: 20px; height: 25px; border: none; cursor: pointer;">
+                                            <i class="fa fa-angle-right fa-lg"></i>
+                                        </button>
                                     </td>
                                 </tr>
                             </table>
                         </div>
+
+                        <table style="margin-top:20px;">
+
+
+                            <tr>
+                                <td style="font-size: 15px; display: flex; justify-content: space-between; color: white; padding-left: 10px; padding-right: 10px; background-color: #761F33;">
+                                    <div style="font-family: 'Avenir', Helvetica, sans-serif;">Department</div>
+                                    <div style="font-family: 'Avenir', Helvetica, sans-serif; padding-right:60px;">Length</div>
+                                    <div style="font-family: 'Avenir', Helvetica, sans-serif; padding-right: 80px;">Level</div>
+                                    <div style="font-family: 'Avenir', Helvetica, sans-serif; padding-right: 50px;">Description</div>
+                                </td>
+                            </tr>
+
+
+                        </table>
+
+                        <template id="cont">
+                            <table>
+
+                                <tr  class="tableTr">
+                                    <td>
+                                        <div style="display: flex; justify-content: space-between; color: #761F33">
+                                            <div class="fa fa-plus" id="##addID##" data-credits="##creditsNum##" onclick="addCourse(this)"></div>
+                                            <div class="course-name" id="##nameID##" data-unique-id="##uniqueId##">##course name##</div>
+                                        </div>
+                                        <div class="descriptions">
+
+                                            <div>##depts##</div>
+                                            <div>##courseLength##</div>
+                                            <div>##courseLevel##</div>
+                                            <div>##credits##</div>
+
+                                            <div>
+                                                <button class="viewDescriptionBtn" id="##buttonID##" onclick="descriptionBttn(this)">
+                                                    View Description
+                                                    <i class="fa fa-caret-down" style="margin-left:5px;"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <div class="descriptions" id="##descID##" style="display: none;">##description##</div>
+                                    </td>
+                                </tr>
+
+
+                            </table>
+
+                        </template>
+
+
+
+                        <div class="results" id="results"></div>
+
                     </div>
 
-                    <div class="sidebar">
-                        <p>Filter by Category</p>
-                        <button class="dropdown" id="pathwayBttn">
-                            Pathway
-                            <i class="fa fa-caret-down"></i>
-                        </button>
-                        <div class="dropdown-container" id="pathwayDDs">
-                        </div>
-
-                        <button class="dropdown">
-                            Days/Week
-                            <i class="fa fa-caret-down"></i>
-                        </button>
-                        <div class="dropdown-container">
-                        </div>
-
-                        <button class="dropdown">
-                            Course Level
-                            <i class="fa fa-caret-down"></i>
-                        </button>
-                        <div class="dropdown-container">
-                        </div>
-
-                        <button class="dropdown">
-                            Length
-                            <i class="fa fa-caret-down"></i>
-                        </button>
-                        <div class="dropdown-container">
-                        </div>
-                    </div>
                 </div>
             </div>
+
+            <template id="courseInCart">
+                <div style="margin-left: 15px; margin-right:15px; font-size: 18px;" id="##classID##">
+                    <div class="fa fa-times" id="##removeID##" data-name-long="##classNME##" data-credits="##creditsNum##" onclick="removeCourse(this)"></div>
+                    <!--https://fontawesome.com/v4.7/icon/times-->
+                    <div class="choicesText">
+                        <div><span title="##longname##">##classname##</span></div>
+                        <div>##credits##</div>
+                    </div>
+                </div>
+            </template>
+            <template id="noResult">
+                <div>
+                    No Result
+                </div>
+            </template>
             <div class="cart">
-                <div class="course-choices">
-                    <p style="font-size: 20px; margin-left:15px; margin-top:10px;margin-bottom:10px;color:white;">Selected Courses</p>
-                    <div style="margin-left: 15px; margin-right:15px; font-size: 18px;">
-                        <div class="fa fa-times"></div>
-                        <!--https://fontawesome.com/v4.7/icon/times-->
-                        <div class="choicesText">
-                            <div>Class 1</div>
-                            <div>10 credits</div>
-                        </div>
-                    </div>
-                    <div style="margin-left: 15px; margin-right:15px; font-size: 18px;">
-                        <div class="fa fa-times"></div>
-                        <div class="choicesText">
-                            <div>Class 2</div>
-                            <div>10 credits</div>
-                        </div>
-                    </div>
-                    <div style="margin-left: 15px; margin-right:15px; font-size: 18px;">
-                        <div class="fa fa-times"></div>
-                        <div class="choicesText">
-                            <div>Class 3</div>
-                            <div>10 credits</div>
-                        </div>
-                    </div>
-                    <div style="margin-left: 15px; margin-right:15px; font-size: 18px;">
-                        <div class="fa fa-times"></div>
-                        <div class="choicesText">
-                            <div>Class 4</div>
-                            <div>10 credits</div>
-                        </div>
-                    </div>
-                    <div style="margin-left: 15px; margin-right:15px; font-size: 18px;">
-                        <div class="fa fa-times"></div>
-                        <div class="choicesText">
-                            <div>Class 5</div>
-                            <div>10 credits</div>
-                        </div>
-                    </div>
-                    <div style="margin-left: 15px; margin-right:15px; font-size: 18px;">
-                        <div class="fa fa-times"></div>
-                        <div class="choicesText">
-                            <div>Class 6</div>
-                            <div>10 credits</div>
-                        </div>
-                    </div>
-                    <div style="margin-left: 15px; margin-right:15px; font-size: 18px;">
-                        <div class="fa fa-times"></div>
-                        <div class="choicesText">
-                            <div>Class 7</div>
-                            <div>10 credits</div>
-                        </div>
-                    </div>
-                    <div style="margin-left: 15px; margin-right:15px; font-size: 18px;">
-                        <div class="fa fa-times"></div>
-                        <div class="choicesText">
-                            <div>Class 8</div>
-                            <div>10 credits</div>
-                        </div>
-                    </div>
-                    <div style="margin-left: 15px; margin-right:15px; font-size: 18px;">
-                        <div class="fa fa-times"></div>
-                        <div class="choicesText">
-                            <div>Class 9</div>
-                            <div>10 credits</div>
-                        </div>
-                    </div>
-                    <div style="margin-left: 15px; margin-right:15px; font-size: 18px;">
-                        <div class="fa fa-times"></div>
-                        <div class="choicesText">
-                            <div>Class 10</div>
-                            <div>10 credits</div>
-                        </div>
+                <div class="course-choices" id="course-choices">
+                    <p style="font-size: 20px; margin-left: 15px; margin-top: 10px; margin-bottom: 10px; color: black; font-family: 'Avenir', Helvetica, sans-serif; ">Selected Courses</p>
+                    <div id="course-list" style="font-family: 'Avenir', Helvetica, sans-serif; ">
+
                     </div>
                     <div>
-                        <form method="post" action="/">
+                        <!--Attach AJAX call here-->
+                        <form action="/student" id="viewCourses">
                             <input type="submit" value="View Selected Courses" style="border:none;" class="viewCoursesBtn" name="viewCoursesBtn" />
                         </form>
                     </div>
                 </div>
-                <div class="cartBtn">
-                    <form method="post" action="/">
-                        <button name="cartBtn" type="submit" class="fa fa-caret-left"></button>
-                        <!--https://fontawesome.com/v4.7/icon/caret-left-->
-                    </form>
-                </div>
             </div>
+
         </div>
+
         <div class="footer">
-            <p>Abington School District © 2022. All Rights Reserved.</p>
+            <p style="color:white;">Abington School District © 2022. All Rights Reserved.</p>
         </div>
-        <div>
+    </div>
+    <script src="{{ url_for('static', filename='jquery-3.6.0.js') }}"></script>
 
-            <script>
-                //VARIABLES
-                var theseContainers = document.getElementsByClassName("dropdown-container");
-                var pathways = ["Buisness", "Computer Science", "Medicine", "Law"];
-                var daysPerWeek = [2, 5, 6];
-                var courseLevel = ["AP", "Honors", "College Preparation", "Standard"];
-                var lengths = ["Semester", "Full Year"];
-                var filters = [pathways, daysPerWeek, courseLevel, lengths, "1"];
-                var dropdownBttns = document.getElementsByClassName("dropdown");
-                const map1 = new Map();
-                var filterTypes = document.getElementsByClassName("filterType");
+    <script type="text/javascript">
+        //why don't i just remove the action calls in the form and remove the need for
+        //event.preventdefault()??
+        var n = 0;
+        var currentData;
+        var length;
 
-                //CLICKING ON DROPDOWNS
-                var onButtonClick = function (event) {
-                    var thisBttn = event.currentTarget;
-                    var container = map1.get(thisBttn);
-                    var style = container.style.getPropertyValue("display");
-                    if (style == "block")
-                        container.style.display = "none";
-                    else
-                        container.style.display = "block";
-                };
+        var num = 0;
+        var coursesInCart = [];
+        var creditTotal = 0;
 
+        var currentPage = 1;
+        var currentPageBox = document.getElementById("pageBox5");
+        var pageTotal;
 
-                for (var i = 0; i < dropdownBttns.length; i++) {
-                    map1.set(dropdownBttns[i], theseContainers[i]);
-                    dropdownBttns[i].addEventListener("click", onButtonClick);
-                }
+        $.ajax({
+            type: "POST",
+            url: "/student",
+            data: { "initialized": "1" }
+        }).done(function (response) {
+            //console.log(response);
+            currentData = response['data']; n = 0;
+            display(JSON.parse(response['data']))
 
-                //MAKE BUTTONS IN DROPDOWNS
-                for (var d = 0; d <= theseContainers.length; d++) {
-                    var filter = filters[d];
-                    for (var i = 0; i < filter.length; i++) {
-                        const ddBttn = document.createElement("button");
-                        ddBttn.className = "filterType";
-                        ddBttn.innerHTML = filter[i];
+            try {
+                responseCart = JSON.parse(response['cart'])
 
-                        theseContainers[d].appendChild(ddBttn);
+                var subKeys = Object.keys(responseCart['ID']);
+
+                for (var i = 0; i < subKeys.length; i++) {
+                    var nameLong = responseCart["longDescription"][subKeys[i]];
+                    //console.log(nameLong);
+                    coursesInCart[i] = nameLong;
+                    splitName = nameLong.split(" ");
+                    if (splitName[0] == 'HONORS') {
+                        splitName.shift()
+                    } else if (splitName[0] == 'ADVANCED' && splitName[1] == 'PLACEMENT') {
+                        splitName.shift()
+                        splitName.shift()
                     }
+
+                    var nameShort = ""
+                    for (var k = 0; k < splitName.length; k++) {
+                        nameShort += splitName[k];
+                        if (k != splitName.length - 1) nameShort += " ";
+                    }
+
+                    if (nameShort.length > 13) {
+                        nameShort = nameShort.substring(0, 10) + "...";
+                    }
+                    
+
+                    var templ = document.getElementById("courseInCart");
+                    var creditsNum = responseCart['credits'][subKeys[i]];
+                    var credits = parseInt(creditsNum);
+
+                    creditTotal += credits;
+
+                    templ.innerHTML = templ.innerHTML.replace("##classID##", "class" + num);
+                    templ.innerHTML = templ.innerHTML.replace("##classname##", nameShort);
+                    templ.innerHTML = templ.innerHTML.replace("##removeID##", "remove" + num);
+                    templ.innerHTML = templ.innerHTML.replace("##classNME##", nameLong);
+                    templ.innerHTML = templ.innerHTML.replace("##longname##", nameLong);
+
+                    templ.innerHTML = templ.innerHTML.replace("##credits##", credits + " credits");
+                    templ.innerHTML = templ.innerHTML.replace("##creditsNum##", creditsNum);
+
+                    document.getElementById("course-list").appendChild(templ.content.cloneNode(true));
+
+                    templ.innerHTML = templ.innerHTML.replace("class" + num, "##classID##");
+                    templ.innerHTML = templ.innerHTML.replace("remove" + num, "##removeID##");
+                    templ.innerHTML = templ.innerHTML.replace(nameLong, "##classNME##");
+                    templ.innerHTML = templ.innerHTML.replace(nameLong, "##longname##");
+                    templ.innerHTML = templ.innerHTML.replace(nameShort, "##classname##");
+
+                    templ.innerHTML = templ.innerHTML.replace(credits + " credits", "##credits##");
+                    templ.innerHTML = templ.innerHTML.replace(creditsNum, "##creditsNum##");
+                    num++;
+
                 }
-            </script>
+
+            } catch (error) { }
+        });
+
+        $("#backward").click(function () {
+            if (n >= 10) { n -= 10; currentPage--; }
+            display(JSON.parse(currentData));
+        });
+
+        $("#forward").click(function () {
+            if ((n + 10) < length) { n += 10; currentPage++; }
+            display(JSON.parse(currentData));
+        });
+
+        $("#fullbackward").click(function () {
+            n = 0; currentPage = 1;
+            display(JSON.parse(currentData));
+        });
+
+        $("#fullforward").click(function () {
+            n = (pageTotal * 10) - 10;
+            currentPage = pageTotal;
+            display(JSON.parse(currentData));
+        });
+
+        $("#search").submit(function (event) {
+            event.preventDefault();
+            $.ajax({
+                type: "POST",
+                url: "/student",
+                data: { "searchBar": document.getElementById("searchBar").value, "searchButton": "" }
+            }).done(function (response) {
+                if (response.redirect) {
+                    window.location.href = response.redirect;
+                } else {
+                    currentData = response; n = 0; currentPage = 1;
+                    display(JSON.parse(response));
+                }
+            });
+        });
+
+        $("#viewCourses").submit(function (event) {
+            event.preventDefault();
+            $.ajax({
+                type: "POST",
+                url: "/student",
+                data: { "editCart": "", "cart": coursesInCart.toString(), "redirect": 'true' }
+            }).done(function (response) {
+                if (response.redirect) {
+                    window.location.href = response.redirect;
+                }
+            });
+        });
+
+        $("#clear").submit(function (event) {
+            event.preventDefault();
+            $.ajax({
+                type: "POST",
+                url: "/student",
+                data: { "clear": "true" }
+            }).done(function (response) {
+                currentData = response['data']; n = 0; currentPage = 1;
+                $('input[type="checkbox"]:checked').prop('checked', false);
+
+                display(JSON.parse(response['data']));
+            });
+        });
+
+        $("#pathways").on("change", "input:checkbox", function (event) {
+            event.preventDefault();
+            AJAX("pathways");
+        });
+
+        $("#departments").on("change", "input:checkbox", function (event) {
+            event.preventDefault();
+            AJAX("departments");
+        });
+
+        $("#courseLevel").on("change", "input:checkbox", function (event) {
+            event.preventDefault();
+            AJAX("courseLevel");
+        });
+
+        $("#courseLength").on("change", "input:checkbox", function (event) {
+            event.preventDefault();
+            AJAX("courseLength");
+        });
+
+        function AJAX(elementID) {
+            var checked = "";
+            var checkboxes = document.getElementById(elementID).querySelectorAll('input[type=checkbox]:checked');
+            for (var i = 0; i < checkboxes.length; i++) checked += checkboxes[i].value + "#";
+            $.ajax({
+                type: "POST",
+                url: "/student",
+                data: { "selected": checked, "origin": elementID, "searchBar": document.getElementById("searchBar").value }
+            }).done(function (response) {
+                if (response.redirect) {
+                    window.location.href = response.redirect;
+                } else {
+                    currentData = response; n = 0; currentPage = 1;
+                    display(JSON.parse(response));
+                }
+            });
+        }
+
+        function display(json) {
+            $("#results").html("");
+            $("#pageNums").html("");
+
+            var subKeys = Object.keys(json['ID']);
+
+            if (subKeys.length == 0) {
+                var temp = document.getElementById("noResult");
+                document.getElementById("results").appendChild(temp.content.cloneNode(true));
+                pageTotal = 1;
+            } else {
+                var temp = document.getElementById("cont");
+
+                var start = n;
+                var end = n + 10;
+                length = subKeys.length;
+
+                if (end > length) { end = length; }
+
+                for (var s = start; s < end; s++) {
+                    var longDescription = json['longDescription'][subKeys[s]].toUpperCase();
+                    var description = json['description'][subKeys[s]];
+                    var dept = json['dept'][subKeys[s]] + ' ';
+
+                    var courseLength = json['Length'][subKeys[s]];
+
+                    var uniqueId = json['ID'][subKeys[s]];
+                    var creditsNum = json['credits'][subKeys[s]] + ".0";
+                    var credits = parseInt(creditsNum);
+
+                    temp.innerHTML = temp.innerHTML.replace("##course name##", longDescription);
+
+                    temp.innerHTML = temp.innerHTML.replace("##description##", description);
+                    temp.innerHTML = temp.innerHTML.replace("##depts##", dept);
+                    temp.innerHTML = temp.innerHTML.replace("##courseLength##", courseLength);
+                    temp.innerHTML = temp.innerHTML.replace("##credits##", credits + " credits");
+                    temp.innerHTML = temp.innerHTML.replace("##creditsNum##", creditsNum);
+                    temp.innerHTML = temp.innerHTML.replace("##uniqueId##", uniqueId);
+
+                    var levelNum = json['level'][subKeys[s]];
+                    var level = "";
+                    if (levelNum == "1") level = "Standard/CP";
+                    if (levelNum == "2") level = "Honors";
+                    if (levelNum == "3") level = "AP";
+
+                    temp.innerHTML = temp.innerHTML.replace("##courseLevel##", level);
+
+                    temp.innerHTML = temp.innerHTML.replace("##buttonID##", "button" + s);
+                    temp.innerHTML = temp.innerHTML.replace("##descID##", "desc" + s);
+
+                    temp.innerHTML = temp.innerHTML.replace("##addID##", "add" + s);
+                    temp.innerHTML = temp.innerHTML.replace("##nameID##", "name" + s);
+
+                    document.getElementById("results").appendChild(temp.content.cloneNode(true));
+
+                    temp.innerHTML = temp.innerHTML.replace(longDescription, "##course name##");
+
+                    temp.innerHTML = temp.innerHTML.replace(description, "##description##");
+                    temp.innerHTML = temp.innerHTML.replace(dept, "##depts##");
+                    temp.innerHTML = temp.innerHTML.replace(courseLength, "##courseLength##");
+                    temp.innerHTML = temp.innerHTML.replace(credits + " credits", "##credits##");
+                    temp.innerHTML = temp.innerHTML.replace(creditsNum, "##creditsNum##");
+                    temp.innerHTML = temp.innerHTML.replace(uniqueId, "##uniqueId##");
+
+                    temp.innerHTML = temp.innerHTML.replace(level, "##courseLevel##");
+
+                    temp.innerHTML = temp.innerHTML.replace("button" + s, "##buttonID##");
+                    temp.innerHTML = temp.innerHTML.replace("desc" + s, "##descID##");
+
+                    temp.innerHTML = temp.innerHTML.replace("add" + s, "##addID##");
+
+                    temp.innerHTML = temp.innerHTML.replace("name" + s, "##nameID##");
+                }
+
+                pageTotal = Math.ceil(subKeys.length / 10);
+            }
+
+            //Pages Display
+            currentPageBox.style.fontWeight = "normal";
+            currentPageBox.style.background = "none";
+
+            for (var i = 1; i < 6; i++) {
+                document.getElementById("pageBox" + i).style.display = "revert";
+            }
+
+            //console.log(currentPage);
+
+            if (currentPage < 4) { currentPageBox = document.getElementById("pageBox" + currentPage); }
+            document.getElementById("pageBox5").innerHTML = pageTotal;
+
+            for (var i = 5; i > pageTotal; i--) {
+                document.getElementById("pageBox" + i).style.display = "none";
+            }
+
+            if (currentPage > 3) {
+                document.getElementById("pageBox2").innerHTML = "...";
+                document.getElementById("pageBox3").innerHTML = currentPage;
+            }
+            else {
+                document.getElementById("pageBox2").innerHTML = "2";
+                document.getElementById("pageBox3").innerHTML = "3";
+            }
+
+            if (document.getElementById("pageBox3").innerHTML >= (pageTotal - 2)) {
+                document.getElementById("pageBox4").innerHTML = pageTotal - 1;
+            }
+            else {
+                document.getElementById("pageBox4").innerHTML = "...";
+            }
+
+            if (currentPage >= (pageTotal - 1)) {
+                document.getElementById("pageBox3").innerHTML = pageTotal - 2;
+                currentPageBox = document.getElementById("pageBox4");
+                if (currentPage == pageTotal) {
+                    currentPageBox = document.getElementById("pageBox5");
+                }
+            }
+            else if (currentPage > 2) {
+                currentPageBox = document.getElementById("pageBox3");
+            }
+
+            currentPageBox.style.fontWeight = "bold";
+            currentPageBox.style.background = "lightgrey";
+        }
+
+        //VARIABLES
+        var theseContainers = document.getElementsByClassName("dropdown-container");
+        var dropdownBttns = document.getElementsByClassName("dropdown");
+        const dropdownMap = new Map();
+        var filterTypes = document.getElementsByClassName("filterType");
+
+        //CLICKING ON DROPDOWNS
+        var onButtonClick = function (event) {
+            var thisBttn = event.currentTarget;
+            var container = dropdownMap.get(thisBttn);
+            $(container).toggle();
+        };
+
+        //CLICKING ON CHECKBOXES
+        const filterTypeBox = new Map([
+            ["pathways", ""],
+            ["departments", ""],
+            ["courseLevel", ""],
+            ["courseLength", ""]
+        ]);
+
+        var checkboxClick = function (element) {
+            var filterType = element.parentElement.parentElement.parentElement.id;
+            //console.log(filterType);
+            //console.log("ID: " + element.id + "      checked: " + element.checked);
+            if (filterTypeBox.get(filterType) != "") filterTypeBox.get(filterType).checked = false;
+            if (filterTypeBox.get(filterType) == element) {
+                filterTypeBox.set(filterType, "");
+            } else {
+                filterTypeBox.set(filterType, element);
+            }
+            //console.log(filterTypeBox);
+        }
+
+        //View Description Button
+        var lastDescript;
+        var descriptionBttn = function (element) {
+            var elementName = element.id;
+            var elNum = elementName.substring(6);
+            var descript = document.getElementById("desc" + elNum);
+            $(descript).toggle();
+            if (lastDescript != null) {
+                if (descript != lastDescript && lastDescript.style.display != "none") {
+                    $(lastDescript).toggle();
+                }
+            }
+            lastDescript = descript;
+        }
+
+        //Add course to cart
+        function addCourse(element) {
+            var elementName = element.id;
+            var elNum = elementName.substring(3);
+            var courseName = document.getElementById("name" + elNum);
+            var nameLong = courseName.innerHTML;
+
+            if (coursesInCart.includes(nameLong) == false && creditTotal < 90) {
+                coursesInCart.push(nameLong);
+                $.ajax({
+                    type: "POST",
+                    url: "/student",
+                    data: { "editCart": "", "cart": coursesInCart.toString(), "redirect": 'false' }
+                });
+
+                splitName = nameLong.split(" ");
+                if (splitName[0] == 'HONORS') {
+                    splitName.shift()
+                } else if (splitName[0] == 'ADVANCED' && splitName[1] == 'PLACEMENT') {
+                    splitName.shift()
+                    splitName.shift()
+                }
+
+                var nameShort = ""
+                for (var k = 0; k < splitName.length; k++) {
+                    nameShort += splitName[k];
+                    if (k != splitName.length - 1) nameShort += " ";
+                }
+
+                if (nameShort.length > 13) {
+                    nameShort = nameShort.substring(0, 10) + "...";
+                }
+
+                var templ = document.getElementById("courseInCart");
+                var credits = parseInt(element.getAttribute("data-credits"));
+                var creditsNum = element.getAttribute("data-credits");
+
+                creditTotal += credits;
+
+                templ.innerHTML = templ.innerHTML.replace("##classID##", "class" + num);
+                templ.innerHTML = templ.innerHTML.replace("##classname##", nameShort);
+                templ.innerHTML = templ.innerHTML.replace("##removeID##", "remove" + num);
+                templ.innerHTML = templ.innerHTML.replace("##classNME##", nameLong);
+                templ.innerHTML = templ.innerHTML.replace("##longname##", nameLong);
+
+                templ.innerHTML = templ.innerHTML.replace("##credits##", credits + " credits");
+                templ.innerHTML = templ.innerHTML.replace("##creditsNum##", creditsNum);
+
+                document.getElementById("course-list").appendChild(templ.content.cloneNode(true));
+
+                templ.innerHTML = templ.innerHTML.replace("class" + num, "##classID##");
+                templ.innerHTML = templ.innerHTML.replace("remove" + num, "##removeID##");
+                templ.innerHTML = templ.innerHTML.replace(nameLong, "##classNME##");
+                templ.innerHTML = templ.innerHTML.replace(nameLong, "##longname##");
+                templ.innerHTML = templ.innerHTML.replace(nameShort, "##classname##");
+
+                templ.innerHTML = templ.innerHTML.replace(credits + " credits", "##credits##");
+                templ.innerHTML = templ.innerHTML.replace(creditsNum, "##creditsNum##");
+                num++;
+            }
+        }
+
+        function removeCourse(element) {
+            var thisNum = element.id.substring(6);
+            var place = coursesInCart.indexOf(element.getAttribute("data-name-long"));
+            coursesInCart.splice(place, 1);
+            creditTotal -= parseInt(element.getAttribute("data-credits"));
+
+            $.ajax({
+                type: "POST",
+                url: "/student",
+                data: { "editCart": "", "cart": coursesInCart.toString(), "redirect": 'false' }
+            });
+            document.getElementById("class" + thisNum).remove();
+        }
+
+        //TOGGLE BUTTON
+        var toggleBttn = function (elementToBeToggled) {
+            $(elementToBeToggled).toggle();
+        }
+
+        //Add event listeners to all dropdowns
+        for (var i = 0; i < dropdownBttns.length; i++) {
+            dropdownMap.set(dropdownBttns[i], theseContainers[i]);
+            dropdownBttns[i].addEventListener("click", onButtonClick);
+        }
+    </script>
+
 
 
 </body>
