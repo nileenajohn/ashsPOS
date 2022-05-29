@@ -1,5 +1,5 @@
 * {
-	font-family: 'Playfair Display', serif;
+	font-family: 'Baskerville', serif;
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
@@ -7,21 +7,34 @@
 
 .page-container {
 	min-height: 100%;
+	min-width:60%;
 }
 
 .wrapper {
-	padding-bottom: 20px;
+}
+
+.ahs-logo {
+	left: 10px;
+	margin-top: 3px;
+	z-index: 999;
+}
+
+.logo {
+	position: fixed;
+	left: 40px;
+	top: 100px;
+	z-index: 999;
 }
 
 .topnav {
-	background-color: #000000;
+	background-color: #761F33;
 	overflow: hidden;
 	position: fixed;
 	top: 0;
-	height: 35px;
+	height: 100px;
 	width: 100%;
 	line-height: 35px;
-	z-index: 999;
+	z-index: 998;
 }
 
 	.topnav p {
@@ -30,16 +43,16 @@
 		font-weight: 70;
 		color: #FFFFFF;
 		margin: auto;
-		margin-left: 70px;
+		margin-left: 120px;
 	}
 
 .header {
-	background-color: rgb(150, 38, 38);
+	background-color: #E6E6E6;
 	overflow: hidden;
 	position: fixed;
-	height: 70px;
+	height: 80px;
 	width: 100%;
-	top: 35px;
+	top: 100px;
 	line-height: 70px;
 	z-index: 998;
 }
@@ -49,113 +62,114 @@
 		font-weight: 100;
 		color: #FFFFFF;
 		margin: auto;
-		margin-left: 70px;
+		margin-left: 120px;
 	}
 
 /*home*/
 #bttnBox {
 	align-self: center;
-	border-style: groove;
 	margin: auto;
 	width: 500px;
 	height: unset;
 	background-color: #f2f2f2;
 	font-style: bold;
-	margin-bottom:200px;
+	margin-top: 220px;
+	margin-bottom: 200px;
 }
 
-.homebtn{
-  padding-bottom: 20px;  
-  height: 60px;
-  margin-bottom: 10px;
-}
-
-.homebtn .mytext{
-  background-color: black;
-  position: relative;
-  color: white;
-  margin: 2px 160px;
-  width: 235px;
-  line-height: 60px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-family: sans-serif;
-  font-size: 16px;
-  cursor: pointer;
-}
-
-.homebtn .btn{
-	margin: 2px 100px;
-  background-color: rgb(150, 38, 38);
-  position: absolute;
-  width: 60px;
-  height: 60px;
-}
-
-.homebtn .btn .fa{
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%,-50%);
-  color: #ffffff;
-}
-
-/*public_catalog*/
-.container {
-	margin-top: 150px;
-}
-
-.mainArea {
-	margin: auto;
-	align-self: center;
-	width: 900px;
-	height: 800px;
-}
-
-.mainArea .mainSpace {
-	position: absolute;
-	margin-left: 200px;
-	width:700px;
-}
-
-.mainArea .search_box {
+.homebtn {
 	padding-bottom: 20px;
+	height: 60px;
+	margin-bottom: 10px;
 }
 
-	.mainArea .search_box .input {
-		position: absolute;
-		width: 100%;
-		height: 60px;
-		padding: 10px 20px;
-		font-size: 18px;
-		background-color: #f2f2f2;
+	.homebtn .mytext {
+		background-color: black;
+		position: relative;
+		color: white;
+		margin: 2px 160px;
+		width: 235px;
+		line-height: 60px;
+		text-align: center;
+		text-decoration: none;
+		display: inline-block;
+		font-family: sans-serif;
+		font-size: 16px;
+		cursor: pointer;
 	}
 
-	.mainArea .search_box .btn {
+	.homebtn .btn {
+		margin: 2px 100px;
+		background-color: #761F33;
 		position: absolute;
-		top: 0;
-		right: 0;
 		width: 60px;
 		height: 60px;
 	}
 
-		.mainArea .search_box .btn .fas {
+		.homebtn .btn .fa {
 			position: absolute;
 			top: 50%;
 			left: 50%;
 			transform: translate(-50%,-50%);
 			color: #ffffff;
-			width: 60px;
-			height: 60px;
-			background: rgb(150, 38, 38);
+		}
+
+/*public_catalog*/
+.container {
+}
+
+.mainArea {
+	margin-top: 200px;
+	margin-left: 300px;
+}
+
+	.mainArea .mainSpace {
+		align-self: center;
+		margin: auto;
+		margin-left: 10%;
+		margin-right: 10%;
+		width: unset;
+		min-width: 600px;
+	}
+
+.search_box {
+	margin-left: 300px;
+	z-index: 999999;
+}
+
+	.search_box .input {
+		align-self: center;
+		margin: auto;
+		margin-left: 10%;
+		margin-right: 10%;
+		margin-top:16px;
+		width: 80%;
+		min-width: 200px;
+		border: none;
+		padding: 13px 20px;
+		font-size: 18px;
+		background-color: white;
+		font-family: 'Didot';
+	}
+
+	.search_box .btn {
+		position: absolute;
+		top: 4.5px;
+		left: 89%;
+	}
+
+		.search_box .btn .fas {
+			color: #ffffff;
+			width: 50px;
+			height: 50px;
+			background: #761F33;
 			border: none;
 			cursor: pointer;
 		}
 
-		.mainArea .search_box .btn .fas:hover {
-			background:black;
-		}
+			.search_box .btn .fas:hover {
+				background: black;
+			}
 
 table {
 	font-family: arial, sans-serif;
@@ -163,117 +177,156 @@ table {
 	width: 100%;
 }
 
+	table p {
+		font-family: 'Avenir', Helvetica, sans-serif;
+	}
+
 td, th {
 	border: 1px solid #dddddd;
 	text-align: left;
-	padding: 8px;
+	padding: 13px;
 }
 
-tr:hover {
+.tableTr:hover {
 	background-color: #d4d4d4;
 }
 
 .mainArea .results {
 	color: #000000;
-	margin-top: 60px;
 	font-size: 15px;
-	background-color: #f2f2f2;
-	border: 2px solid black;
-	width:100%;
+	background-color: #E6E6E6;
+	width: 100%;
 }
 
 .course-name {
 	font-weight: bold;
-	margin-bottom: 10px;
-	font-size: 20px;
+	margin-bottom: 40px;
+	font-size: 22px;
+	font-family: 'Avenir', Helvetica, sans-serif;
 }
 
 .descriptions {
-	margin-left:5px;
+	margin-bottom: 5px;
 	font-size: 18px;
 	display: flex;
 	justify-content: space-between;
+	margin-left: 10px;
+	margin-right: 10px;
+	font-weight:bolder;
 }
+
+.viewDescriptionBtn {
+	text-decoration: none;
+	font-size: 18px;
+	color: black;
+	border: none;
+	background: none;
+	cursor: pointer;
+	font-weight:bold;
+}
+
+	.viewDescriptionBtn:hover {
+		color: #761F33;
+	}
+
+.addCourseBtn {
+	text-decoration: none;
+	font-size: 15px;
+	color: black;
+	border: none;
+	background: none;
+	cursor: pointer;
+}
+
+	.addCourseBtn:hover {
+		color: #761F33;
+	}
 
 .fa-plus {
 	position: absolute;
 	color: black;
-	width: 30px;
-	height: 30px;
+	width: 20px;
+	height: 20px;
 	cursor: pointer;
-	right:0px;
+	right: 0px;
+	margin-top: 0px;
 }
 
-	.fa-plus:hover + .course-name {
-		color:blue;
+	.fa-plus:hover {
+		color: #761F33;
 	}
 
+
 .cart {
-	position:absolute;
-	right: 0px;
-	top:115px;
+	position: absolute;
+	top: 220px;
+	margin-left: 1510px;
 }
 
 .course-choices {
 	position: absolute;
 	right: 0px;
-	width: 200px;
+	width: 270px;
+	margin-right: 30px;
 	height: 300px;
-	background-color: black;
+	background-color: #CDCDCD;
 }
 
-.cartBtn {
-	position: absolute;
-	right:15px;
-	margin-top:15px;
-}
+	.cartBtn .fa {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%,-50%);
+		color: #ffffff;
+		width: 30px;
+		height: 30px;
+		background: #761F33;
+		border: none;
+		cursor: pointer;
+	}
 
-.cartBtn .fa {
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%,-50%);
-	color: #ffffff;
-	width: 30px;
-	height: 30px;
-	background: rgb(150, 38, 38);
-	border: none;
-	cursor: pointer;
-}
-
-.cartBtn .fa:hover {
-	background: #000000;
-}
+		.cartBtn .fa:hover {
+			background: #000000;
+		}
 
 .choicesText {
-	margin-left: 25px;
 	display: flex;
 	justify-content: space-between;
-	color:white;
+	color: white;
 }
 
-#bttnBox .choicesText {
-	color: black;
+#bttnBox {
+	height: 400px;
+	align-self: center;
+	margin: auto;
+	margin-top: 220px;
+	width: 500px;
+	background-color: #f2f2f2;
+	margin-bottom: 200px;
 }
 
-#bttnBox .fa-times {
-	position: absolute;
-	margin-right:500px;
-	width: 15px;
-	height: 15px;
-	cursor: pointer;
-	background: none;
-	color: black;
-	margin-top: 0px
-}
-
-	#bttnBox .fa-times:hover {
-		color: rgb(150, 38, 38);
+	#bttnBox .choicesText {
+		color: black;
 	}
 
-	#bttnBox .fa-times:hover + .choicesText {
-		color: rgb(150, 38, 38);
+	#bttnBox .fa-times {
+		position: absolute;
+		margin-right: 500px;
+		width: 15px;
+		height: 15px;
+		cursor: pointer;
+		background: none;
+		color: black;
+		margin-top: 0px
 	}
+
+		#bttnBox .fa-times:hover {
+			color: #761F33;
+		}
+
+			#bttnBox .fa-times:hover + .choicesText {
+				color: #761F33;
+			}
 
 .course-choices .fa-times {
 	position: absolute;
@@ -282,26 +335,26 @@ tr:hover {
 	height: 15px;
 	cursor: pointer;
 	margin-top: 2px;
-	background:none;
+	background: none;
 }
 
 	.course-choices .fa-times:hover {
-		color: rgb(150, 38, 38);
+		color: #761F33;
 	}
 
 		.course-choices .fa-times:hover + .choicesText {
-			color: rgb(150, 38, 38);
+			color: #761F33;
 		}
 
 .viewCoursesBtn {
-	background: rgb(150, 38, 38);
+	background: #761F33;
 	color: white;
 	height: 30px;
 	width: 150px;
 	border: 2px solid white;
-	position:absolute;
-	bottom:15px;
-	left:25px;
+	position: absolute;
+	bottom: 10px;
+	left: 25px;
 }
 
 	.viewCoursesBtn:hover {
@@ -309,25 +362,29 @@ tr:hover {
 	}
 
 /*SIDEBAR*/
-.sidebar {
-	height: unset;
-	width: 180px;
-	background-color: black;
-	overflow-x: hidden;
+		.sidebar {
+	overflow-y: hidden;
+	height: 1600px;
 	position: absolute;
-	margin-bottom: 800px;
+	background-color: #CDCDCD;
+	width: 300px;
+	overflow-x: hidden;
+	top: 180px;
+	margin-left: 0px;
 }
 
 	.sidebar p {
-		color: white;
+		color: black;
 		text-align: center;
+		font-family: 'Avenir', Helvetica, sans-serif;
 	}
 
 	.sidebar .filterType, .dropdown, .sidebar p {
-		padding: 6px 8px 6px 16px;
+		padding: 30px 35px 5px 35px;
 		text-decoration: none;
-		font-size: 20px;
-		color: #818181;
+		font-size: 17px;
+		color: black;
+		font-family: 'Avenir', Helvetica, sans-serif;
 		display: block;
 		border: none;
 		background: none;
@@ -337,51 +394,139 @@ tr:hover {
 		outline: none;
 	}
 
-	.sidebar a:hover, .sidebar .filterType:hover, .dropdown:hover {
-		color: #f1f1f1;
-	}
+		.sidebar a:hover, .sidebar .filterType:hover, .dropdown:hover {
+			color: #f1f1f1;
+		}
 
 /* Dropdown container (hidden by default).*/
 .dropdown-container {
 	display: none;
-	background-color: #262626;
 	padding-left: 8px;
 }
 
 .fa-caret-down {
 	float: right;
-	padding-right: 8px;
+}
+
+label {
+	display: inline;
+	font-family: 'Avenir', Helvetica, sans-serif;
+}
+
+.checkbox-container {
+	display: block;
+	position: relative;
+	padding-left: 35px;
+	padding-top: 7.5px;
+	padding-bottom: 5px;
+	cursor: pointer;
+	font-size: 15px;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+	.checkbox-container input {
+		position: absolute;
+		opacity: 0;
+		cursor: pointer;
+		height: 0;
+		width: 0;
+	}
+
+/* Create a custom checkbox */
+.checkmark {
+	position: absolute;
+	top: 11px;
+	right: 11px;
+	height: 12px;
+	width: 12px;
+	background-color: transparent;
+	border: 1px solid grey;
+}
+
+/* On mouse-over, add a grey background color */
+.checkbox-container:hover input ~ .checkmark {
+	background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a red background */
+.checkbox-container input:checked ~ .checkmark {
+	background-color: #761F33;
+	border: none;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+	content: "";
+	position: absolute;
+	display: none;
+}
+
+/* Show the checkmark when checked */
+.checkbox-container input:checked ~ .checkmark:after {
+	display: block;
+}
+
+/* Style the checkmark/indicator */
+.checkbox-container .checkmark:after {
+	left: 4px;
+	top: 2px;
+	width: 2px;
+	height: 5px;
+	border: solid white;
+	border-width: 0 2px 2px 0;
+	-webkit-transform: rotate(45deg);
+	-ms-transform: rotate(45deg);
+	transform: rotate(45deg);
 }
 
 /*FOOTER*/
 .footer {
 	position: absolute;
-	z-index: 997;
-	left:0px;
-	right:0px;
-	height: 40px;
-	line-height: 40px;
+	z-index: 999999;
+	height: 90px;
 	background-color: black;
-	text-align: center;
-	/*width:100%;*/
+	width: 100%;
+	top: 1700px;
+}
 }
 
 	.footer p {
 		color: white;
+		margin-left: 50px;
+		margin-top: 10px;
+		font-size: 20px;
 	}
 
 /*REQUEST COURSES PAGE*/
 .scheduleRequestBtn {
-	background: rgb(150, 38, 38);
+	background: #761F33;
 	color: white;
 	height: 40px;
 	width: 170px;
-	margin-left:175px;
-	margin-top:15px;
-	margin-bottom:15px;
+	margin-left: 175px;
+	margin-top: 15px;
+	margin-bottom: 15px;
 	border: 2px solid white;
 }
 
 	.scheduleRequestBtn:hover {
 		background: #000000;
+	}
+
+.logoutBtn {
+	position: absolute;
+	font-size: 11px;
+	right: 8px;
+	top: 8px;
+	font-family: "Roboto",Arial,sans-serif;
+	border-radius: 4px;
+	cursor: pointer;
+	padding: 8px 15px 8px;
+}
+
+	.logoutBtn:hover {
+		background-color: #CDCDCD
 	}
